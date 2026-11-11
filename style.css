@@ -1,189 +1,371 @@
-*{
-padding:0;
-margin: 0;
-box-sizing: border-box;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
 }
-.container{
-    display:grid;
+
+.container {
+    display: grid;
     grid-template-columns: 1fr 4fr;
-   /* grid-template-rows:repeat(5,1fr);
-    height: 100vh; */
-}
-/*
-.header{
-    display:grid;
-  /*  grid-auto-flow: column; */
-  /*  grid-column: 2/4;
-   /* background-color: black; */
-  /*  grid-row: 1/2; */
-   /* justify-items: self-end; */
-   /* gap:2px; */
-   /* justify-content: left; */
-  /*  grid-template-columns: repeat(2,1fr);
-}
-*/
-/*
-.search_icon {
-    margin-left: auto;
-}
-*/
-/*
-.search_bar{
-    margin-right: auto;
-}
-*/
-/*
-.header  {
-    justify-self: self-start;
-}
-*/
-/*
-.header_top{
- display:grid;
- grid-auto-flow: column;
- grid-template-columns: 1fr 1fr;
- grid-column: 1/3;
-}
-*/
-
-.top-left {
-    display:grid;
-    grid-column: 2/3;
-    grid-template-columns: repeat(5, 1fr);
-  /*  margin-left: auto; */
-    column-gap:10px;
-    row-gap: 20px;
-}
-img.search_icon{
-    justify-self: right;
-}
-#searchbox {
-   max-width: 400px;
-    height:fit-content;
-    margin-top:3px ;
-    border-radius: 50px;
-}
-.bell {
-    justify-self:end;
-}
-.top-left p {
-    margin-right: auto;
-}
-.yellow2 {
-    justify-self: end;
-}
-.left-oval, .central-oval, .right-oval {
-    text-align: center;
-    background-color: blue; 
-    width:100px;
-    height: 40px;
-    border-radius: 45%;
-}
-/*
-.top-right {
-    display:grid;
-    grid-column: 2/3;
-    grid-auto-flow: column;
-    justify-content: left; 
-    gap:5px;
-    place-items: center;
-    margin-left: auto;
-}
-img.yellow {
-    padding-top: 2px;
-}
-/*
-.header_bottom{
-    display:grid;
-    grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr;
-    grid-column: 1/3;
-}
-.bottom-left{
-    display:grid;
-    grid-auto-flow: column;
+    grid-template-rows: auto 1fr;
+    /* grid-template-rows:repeat(5,1fr); */
+    min-height: 100vh;
 }
 
-.bottom-left img {
-    justify-self: end;
-}
-.left-text{
-    display:grid;
-    justify-self:start;
-}
-
-.text-top{
-align-self: self-end;
-}
-.bottom-right {
+/* Header Layout Shell */
+.header {
+    background-color: #ffffff;
+    padding: 15px 30px;
     display: grid;
-    grid-auto-flow: column;
-    gap:20px;
-    justify-content: center;
+    grid-template-rows: 1fr 1fr;
+    /* Two equal rows */
+    gap: 15px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+/* Row Layouts */
+.header-top,
+.header-bottom {
+    display: flex;
+    justify-content: space-between;
+    /* Pushes left group to left, right group to right */
     align-items: center;
+    /* Centers items vertically */
 }
-.left-oval, .central-oval, .right-oval {
-    display: grid;
+
+/* Left Side: Search Bar Inner Styling */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 60%;
+    /* Gives the search bar plenty of stretching room */
+}
+
+.search-container input {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background-color: #e2e8f0;
+    border-radius: 20px;
+}
+.search-container img {
+    width: 24px; /* Matches the clean size profile of your sidebar navigation items */
+    height: 24px;
+}
+
+
+/* Right Side: Utility & Buttons Alignment */
+.user-utility,
+.user-greeting,
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    /* Uniform spacing between adjacent elements */
+}
+
+/* Typography adjustment for the greeting text stacked layout */
+.greeting-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.greeting-sub {
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.greeting-main {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.btn {
+    text-align: center;
     background-color: blue;
-    justify-content: center;
-    align-items: center; 
-    width:100px;
+    width: 100px;
     height: 40px;
-    border-radius: 45%;
-   }
-*/
-.sidebar {
-    display: grid;
-    grid-column :1/2;
-    grid-row: 1/8; 
-    background-color:blue;
-    grid-template-columns: 1fr  1fr;
-    padding: 5px; 
-    gap:10px;
+    border-radius: 20px;
 }
+.btn:hover {
+    background-color: #1472a5;
+}
+
+
+
+.sidebar {
+    grid-row: 1 / 3;
+    /* Forces the sidebar to sit inside the first grid row */
+    grid-column: 1 / 2;
+    /* Forces the sidebar to sit inside the first grid column */
+    background-color: #1992d4;
+    /* Add your preferred background color here */
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    /*min-height: 100vh;  */
+    /* Ensures the sidebar takes up the full height of the viewport */
+}
+.dashboard-logo {
+    display: flex;
+    align-items: center; 
+    gap: 15px;
+    margin-bottom: 25px; /* Separate the brand logo from the links */
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+.dashboard-logo img {
+    width: 32px; /* Clean size control */
+    height: 32px;
+}
+
+
+
+
+/* Align the icon and text horizontally inside each row */
+.sidebar-item {
+    display: flex;
+    align-items: center;
+    /* Centers icon and text vertically together */
+    gap: 15px;
+    /* Space between the icon and the text */
+}
+
+.sidebar-item img {
+    width: 24px;
+    /* Keeps icons a uniform, clean size */
+    height: 24px;
+}
+
+
+/*
 
 .dashboard {
-  
+
     margin-bottom: 25px;
 }
-p,img {margin-top: 10px;}
+*/
+/*
+p,
+img {
+    margin-top: 10px;
+}
+    */
+/*
+.communities,
+.communities+p {
+    margin-bottom: 100px;
+}
+*/
+.nav-gap {
+    margin-bottom: 60px;
+    /* Adjust this value to get your perfect visual separation */
+}
 
-.communities,.communities+p {margin-bottom:  100px;}
+/* --- MAIN CONTENT OUTER AREA --- */
+.header {
+    grid-column: 2 / 3;
+    /* Forces header to stay on the right side of the sidebar */
+    grid-row: 1 / 2;
+}
 
 .main {
+    grid-column: 2 / 3;
+    /* Forces main content to sit under the header, next to sidebar */
+    grid-row: 2 / 3;
     display: grid;
-    background-color: lightyellow;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 3fr 1fr;
+    /* 3 parts projects, 1 part right sidebar */
+    gap: 25px;
+    background-color: #e2e8f0;
+    /* Standard light grey background for contrast */
+    padding: 30px;
+    align-items: stretch;
+    /* Ensures both columns stretch to the same height */
 }
-.projects {
-  /*  grid-column: 2/3; */
-    display: grid;
-  /*  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  */
-  
-    grid-template-columns: 1fr 1fr; 
-    gap: 15px;
-  }
+/*
+.projects-section h2 {
+    border:2px solid #000;
+    
+}
+*/
 
-  .pictures{
-    display: grid;
-  /*  grid-template-columns: 1fr 1fr 1fr; */
-  grid-template-columns: repeat(auto-fit, minmax(50px, 0.5fr));
-  /*  justify-content: right; */
-  }
-  .pictures img {
-    width:50%;
-  }
-  
-  .projects .project {
-    height: 200px;
+/* --- LEFT SIDE: PROJECTS CONTAINER & CARDS --- */
+
+.projects .project {
     background-color: white;
-  }
-  .right-most{
-    display:grid;
-    gap: 10px;
-  }
-.announcements,.trending {
-  /*  height:250px; */
-    background-color:white ;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid #f59e0b;
+    /* The signature gold accent border on the left */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
 }
+
+.project .title {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+.project p:not(.title) {
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    flex-grow: 1;       /* Allows the description to comfortably occupy the card body */
+    margin-bottom: auto; /* Pushes down cleanly if text is short */
+}
+.projects .project {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.projects .project:hover {
+    transform: translateY(-4px); /* Subtle float up on hover */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.announcements-wrapper,
+.trending-wrapper {
+    width: 100%; /* Ensures the white cards span the full column width uniformly */
+}
+
+
+
+/* Icons panel inside the project cards */
+.pictures {
+    display: flex;
+    justify-content: flex-end;
+    /* Pushes the icons to the bottom right edge */
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.pictures img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* --- RIGHT SIDE: ANNOUNCEMENTS & TRENDING CONTAINER --- */
+.right-most {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    justify-content: flex-start;
+
+}
+
+.announcements-wrapper,
+.trending-wrapper {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Separate items inside announcements with thin lines */
+.announcement-item {
+    padding: 15px 0;
+}
+
+.announcement-item:not(:last-child) {
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.announcement-item p:first-child {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.announcement-item p:last-child {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+/* Trending Section Styles */
+.trending-wrapper h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.trending-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.mare {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    /* Keeps profile photos round */
+}
+
+.sidetext {
+    display: flex;
+    flex-direction: column;
+}
+
+.para {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.para2 {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+
+/* 1. Make the new left wrapper a flex container that stretches to the bottom */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+   /* height: 100%; */ /* Forces it to match the full height of the right column */
+}
+.projects-section .projects {
+    flex-grow: 1; /* Ensures the projects grid takes up remaining vertical space */
+    display: grid;
+   /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+    /*grid-auto-rows: 1fr; /*Ensures cards match each other evenly */
+    grid-template-columns: 1fr 1fr;    /* Enforces exactly 2 equal columns */
+    grid-template-rows: 1fr 1fr 1fr;  /* Enforces exactly 3 equal rows */
+
+    gap: 20px;
+}
+
+.title-text  {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 12px; /* Uniform space above the white cards */
+}
+.title-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*
+.projects {
+   /* display: grid; */
+   /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+    /* Responsive grid columns */
+    /* grid-auto-rows: auto;*/ /* Ensures rows automatically adjust their height */
+   /* grid-template-columns: 1fr 1fr; /* Forces two equal columns */ 
+    /* grid-template-rows: 1fr 1fr 1fr; */
+   /* gap: 20px; */
